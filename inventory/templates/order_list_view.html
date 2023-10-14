@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Order List</h1>
+  <ul>
+    {% for order in orders %} 
+    <li>
+      <a href="#">
+        {{ order.weight }} - {{ order.user }} - {{ order.username }} - {{ order.created_at }} - {{order.product}}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

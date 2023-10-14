@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Order Detail</h1>
+  <p>Weight: {{ order.weight }} Kg</p>
+  <p>Created At: {{ order.created_at }}</p>
+  <p>Last Updated: {{ order.updated_at }}</p>
+  <p>User: {{ order.username }}</p>
+  <p>Product Price: {{ order.product.price }}</p>
+  <p>Product Tags:
+    {% for tag in order.product.tag.all %}
+      {{ tag.name }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+  <p>Warehouse Name: {{ order.product.inventory.name }}</p>
+  <p>Warehouse Manager: {{ order.product.inventory.manager }}</p>
+{% endblock %}
